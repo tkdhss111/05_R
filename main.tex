@@ -1,0 +1,26 @@
+\def\SlideX{} % Change name other than 'Slide' like 'SlideX' to make A4 paper
+\def\PrintLecture{1} % Lecture On(1)/Off(0)
+\def\PrintSolution{1} % Solution(Answer) On(1)/Off(0)
+
+\def\MyClass{\R ・\RStudio のインストール}
+
+% Include Files
+\def\DirCourse{\string~/AQUOS/Default_Folder/TIU/lectures} % Manual setting
+\input{\DirCourse/05_R/tex/header.tex}
+\input{\DirCourse/tex/macro.tex}
+
+\begin{document}
+\ifthenelse{\Slide=1}{\date{}}{}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\newpage
+
+\subfile{./class01_intro/R_installation.tex}
+\subfile{./class02/R_basics.tex}
+\subfile{./class02/R_graphics.tex}
+\subfile{./class02/050-io.tex}
+\subfile{./class02/060-stat.tex}
+\subfile{./class02/990-closing.tex}
+
+\end{document}
