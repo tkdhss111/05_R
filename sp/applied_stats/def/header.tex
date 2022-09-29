@@ -1,0 +1,96 @@
+\input{def/beamer.tex}
+\input{def/listings.tex}
+
+\title[応用統計技術者講座~第2回]{統計解析環境Ｒ入門}
+
+\subtitle{---~応用統計技術者講座~第2回~---}
+
+\author[\textcopyright~Hisashi Takeda]{竹田~恒}
+
+\institute[TEPCO HD TRI]{経営技術戦略研究所\\経営戦略調査室~エネルギー経済グループ}
+
+\date{2020年5月29日}
+
+\titlegraphic{
+  \includegraphics[scale=0.12]{fig/logo_tepco}
+  %\includegraphics[scale=0.015]{fig/logo_pg}
+}
+
+%
+% My definitions
+%
+\def\cs#1{\footnotesize{>\hspace{2mm}\textcolor{blue}{\texttt{#1}}}} % Console prompt >
+\def\R{\textbf{R}}
+\def\RStudio{\textbf{RStudio}}
+\def\Excel{\textbf{Excel}}
+
+% Frame with section.subsection
+\def\myffr{ \begin{frame}[fragile]{\thesection.\thesubsection 【\insertsection】\insertsubsection} }
+
+\def\myfto{\end{frame}}
+
+% Frame with section only
+\def\mysffr{ \begin{frame}[fragile]{\thesection. \insertsection} }
+
+\def\mybfr #1{\begin{block}{#1}}
+\def\mybto {\end{block}}
+
+\def\myefr #1{ \begin{exampleblock}{#1} }
+\def\myeto { \end{exampleblock} }
+
+\def\myb #1#2{\mybfr{#1}#2\mybto}
+\def\mye #1#2{\myefr{#1}#2\myeto}
+
+\def\mybb #1#2#3#4{
+  \begin{minipage}{0.45\hsize}\mybfr{#1}#2\mybto\end{minipage}\hspace{3mm}
+  \begin{minipage}{0.45\hsize}\mybfr{#3}#4\mybto\end{minipage}
+}
+
+\def\myee #1#2#3#4{
+  \begin{minipage}{0.45\hsize}\myefr{#1}#2\myeto\end{minipage}\hspace{3mm}
+  \begin{minipage}{0.45\hsize}\myefr{#3}#4\myeto\end{minipage}
+}
+
+\def\mybbb #1#2#3#4#5#6{
+  \begin{minipage}{0.3\hsize}\mybfr{#1}#2\mybto\end{minipage}\hspace{3mm}
+  \begin{minipage}{0.3\hsize}\mybfr{#3}#4\mybto\end{minipage}\hspace{3mm}
+  \begin{minipage}{0.3\hsize}\mybfr{#5}#6\mybto\end{minipage}
+}
+
+\def\myeee #1#2#3#4#5#6{
+  \begin{minipage}{0.3\hsize}\myefr{#1}#2\myeto\end{minipage}\hspace{3mm}
+  \begin{minipage}{0.3\hsize}\myefr{#3}#4\myeto\end{minipage}\hspace{3mm}
+  \begin{minipage}{0.3\hsize}\myefr{#5}#6\myeto\end{minipage}
+}
+
+\def\sectitle{
+\begin{frame}[fragile]
+  \centering
+  \Huge
+%  \thesection
+\end{frame}
+}
+
+% pifont
+\DeclareFontFamily{U}{hands}{}
+\DeclareFontShape{U}{hands}{m}{n}{<-> hands}{}
+\def\myrighthand{\textcolor{red}{\Pisymbol{hands}{65}}}
+\def\mylefthand{\textcolor{red}{\Pisymbol{hands}{66}}}
+%\def\mycheck{\textcolor{red}{$\leftarrow$ココ}}
+%\def\mycheck{\tikzsymbolsuse{BasicTree}[1.2]{black}{red!50!black}{red}{leaf}}
+
+\DeclareFontFamily{U}{dancers}{}
+\DeclareFontShape{U}{dancers}{m}{n}{<-> dancers}{}
+\def\mydancer{\textcolor{red}{\Pisymbol{dancers}{\thesubsection}}}
+
+\DeclareFontFamily{U}{smfpr10}{}
+\DeclareFontShape{U}{smfpr10}{m}{n}{<-> smfpr10}{}
+\newcount\mycnt
+\mycnt=64
+\def\mycheck#1{ \advance\mycnt by 1 \footnotesize{\textcolor{red}{\Pisymbol{smfpr10}{\mycnt}} #1} }
+
+%\def\myon#1{\onslide<#1>}
+\def\myon#1{\relax}
+
+\begin{document}
+

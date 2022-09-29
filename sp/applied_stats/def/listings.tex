@@ -1,0 +1,37 @@
+%
+% Listings package settings 
+%
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\def\lstlistingname{ソースコード}
+\def\lstlistlistingname{ソースコード目次}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    language=R,
+    backgroundcolor=\color{backcolour},   
+    basicstyle=\ttfamily\tiny,
+    commentstyle=\itshape\color{codegray},
+    keywordstyle=\bfseries\color{blue},
+    numberstyle=\noncopynumber,
+    numberstyle=\color{codegray},
+    stringstyle=\color{codepurple},
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=3pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}

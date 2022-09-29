@@ -1,0 +1,77 @@
+\include{def/header}
+
+\subsection{テキストデータの出力}
+
+\myffr
+
+  \mybfr{手順}
+    write.csv関数を使用して，オブジェクトデータを
+    ファイルにCSVファイル形式*で書き込む．
+    * CSV：カンマ区切
+  \mybto
+  
+
+  \myefr{コンソール}
+    \cs{ d0 <- data.frame(name = c('panda', 'lion'), age = c(5, 7)) }\\
+    \cs{ write.csv(d0, file = 'd0.csv') }
+  \myeto
+
+  quote = Fオプションをつけると文字列引用符「"」を削除できる．
+  write.csv(d0, file = 'd0.csv', quote = F)
+
+  \mybfr{演習}
+    データフレームを作成し，ファイルに出力してください．
+  \mybto
+
+\end{frame}
+
+\subsection{テキストデータの入力}
+
+\myffr
+
+  \mybfr{手順}
+    read.csv関数を使用して，CSVファイルを読み込み
+    オブジェクトに格納する．
+  \mybto
+
+  \myefr{コンソール}
+    \cs{d1 <- read.csv(file = 'd0.csv')}\\
+    \cs{str(d1)}
+  \myeto
+
+  stringsAsFactors = Fオプションをつけると文字列の自動因子化を抑制します．
+  read.csv(file = 'd0.csv', stringsAsFactors = F)
+
+  \mybfr{演習}
+    CSVファイルを読み込み，オブジェクトに格納してください．
+  \mybto
+
+\end{frame}
+
+\subsection{\Excel データの入力}
+
+\myffr
+
+  \mybfr{手順}
+    excel.linkパッケージを利用し，\R とリンクさせる．\\
+    パッケージの利用コマンド： library(excel.link)
+  \mybto
+
+  \myefr{コンソール}
+    \cs{library(excel.link)}\\
+    \cs{xl.workbook.open('test.xlsx')}\hfill \mycheck{Excelを開く}\\
+    \cs{d <- data.frame(x=3:1, y=-1:1)}\\
+    \cs{xl['Sheet1!A1'] <- d}\hfill \mycheck{Sheet1のＡ１を起点としてデータを書き込み}\\
+    \cs{xl['Sheet1!B2'] -> x}\hfill \mycheck{Sheet1のＢ２からデータを読み込み}\\
+    \cs{xl.workbook.save('test.xlsx')}\hfill \mycheck{Excelを保存}
+  \myeto
+
+  \mycheck{xlr: 行名付き，xlc：列名付き, xlrc：行列名付き入出力}
+
+  \mybfr{演習}
+    パッケージのヘルプにあるサンプルコードを用いてExcelを操作してください．
+  \mybto
+
+\end{frame}
+
+\include{def/footer}

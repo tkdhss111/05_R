@@ -1,0 +1,163 @@
+\documentclass[dvipdfmx,bookmarks,12pt]{beamer}
+%\documentclass[12pt, bookmarks, table]{beamer} % for pdflatex
+%\documentclass[12pt, dvipdfmx, bookmarks, dvipsnames, table]{beamer} % for uplatex
+%\documentclass[12pt, dvipdfm, bookmarks, handout]{beamer}
+%\documentclass[8,9,10,11,12,14,17,20pt, dvips, handout]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% takeda added packages 2019-12-10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% OTF font settings
+%
+\usepackage[deluxe]{otf}
+\usepackage[unicode,noalphabet]{pxchfon}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\setgothicfont{UDDigiKyokashoN-R.otf} % Comment out if compilation fails
+
+%
+% Special fonts
+%
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{pifont}
+\usepackage{calc}
+
+%
+% Hyper reference
+%
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={},
+    pdfauthor={Hisashi Takeda, Ph.D.},
+%    bookmarks=true,
+    pdfpagemode=FullScreen,
+    bookmarksopen=true
+}
+\pdfstringdefDisableCommands{%
+\def\translate#1{#1}%
+}
+
+\usepackage{xcolor}
+\graphicspath{ {./fig/} }
+\usepackage{minijs}% min10ヤダ
+\usepackage{pxjahyper}% 日本語で'しおり'
+\usepackage{bxdpx-beamer}%ナビゲーションシンボルを機能させる.
+\usepackage{caption} % Remove Figure capton label by \caption*
+
+\setbeamertemplate{footline}[page number]
+\setbeamertemplate{caption}[numbered]
+
+% Varying length block
+\newenvironment<>{varblock}[2][\textwidth]{%
+   \setlength{\textwidth}{#1}
+   \begin{actionenv}#3%
+     \def\insertblocktitle{#2}%
+     \par%
+     \usebeamertemplate{block begin}}
+   {\par%
+     \usebeamertemplate{block end}%
+   \end{actionenv}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%  theme  %%%%%%%%%%%
+%\usetheme{metropolis} % Very simple
+%\usetheme{Madrid}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Barkeley}
+%\usetheme{Bergen}
+%\usetheme{Berlin}
+\usetheme{Boadilla} % My favorite
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Dreson}
+%\usetheme{Frankurt}
+%\usetheme{Goettingen}
+%\usetheme{Hanover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%%%%%%%%%%%  inner theme  %%%%%%%%%%%
+%\useinnertheme{default}
+%\useinnertheme{circles}
+%\useinnertheme{inmargin}
+\useinnertheme{rectangles}
+%\useinnertheme{rounded}
+
+%%%%%%%%%%%  outer theme  %%%%%%%%%%%
+%\useoutertheme{default}
+%\useoutertheme{infolines}
+%\useoutertheme{miniframes}
+%\useoutertheme{smoothbars}
+%\useoutertheme{sidebars}
+%\useoutertheme{split}
+%\useoutertheme{shadow}
+%\useoutertheme{tree}
+%\useoutertheme{smoothtree}
+
+%%%%%%%%%%%  color theme  %%%%%%%%%%%
+%\usecolortheme{structure}
+%\usecolortheme{sidebartab}
+%\usecolortheme{albatross}
+%\usecolortheme{beetle}
+%\usecolortheme{dove}
+%\usecolortheme{crane}
+%\usecolortheme{fly}
+%\usecolortheme{seagull}
+\usecolortheme{wolverine}
+%\usecolortheme{beaver}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{whale}
+%\usecolortheme{seahorse}
+%\usecolortheme{dolphin}
+
+%%%%%%%%%%%  font theme  %%%%%%%%%%%
+\usefonttheme{professionalfonts}
+%\usefonttheme{default}
+%\usefonttheme{serif}
+%\usefonttheme{structurebold}
+%\usefonttheme{structureserif}
+%\usefonttheme{structuresmallcapsserif}
+
+%%%%%%%%%%%  degree of transparency  %%%%%%%%%%%
+%\setbeamercovered{transparent=30}
+
+%%%%%%%%%%%  numbering  %%%%%%%%%%%
+%\setbeamertemplate{numbered}
+
+%\journal{Society of Applied Economic Time Series Analysis}
+%\biboptions{longnamesfirst}
+%\bibliographystyle{bib/elsart-num-names}
+\bibliographystyle{bib/elsarticle-num}
+%\bibliographystyle{bib/elsarticle-harv}
+%\bibliographystyle{bib/elsart-num-sort}
+\setbeamertemplate{bibliography item}[text]
+
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+
+% Tikz icons
+%\usepackage{marvosym}
+%\usepackage[marvosym]{tikzsymbols}
