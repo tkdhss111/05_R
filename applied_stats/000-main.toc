@@ -1,0 +1,41 @@
+\beamer@sectionintoc {1}{はじめに}{3}{0}{1}
+\beamer@sectionintoc {2}{統計解析環境}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{\textbf {R}}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{\textbf {R}パッケージ}{7}{0}{2}
+\beamer@subsectionintoc {2}{3}{CRAN}{8}{0}{2}
+\beamer@subsectionintoc {2}{4}{RjpWiki}{9}{0}{2}
+\beamer@subsectionintoc {2}{5}{\textbf {RStudio}}{10}{0}{2}
+\beamer@sectionintoc {3}{基本操作}{11}{0}{3}
+\beamer@subsectionintoc {3}{1}{スカラの作成}{12}{0}{3}
+\beamer@subsectionintoc {3}{2}{ベクトルの作成}{13}{0}{3}
+\beamer@subsectionintoc {3}{3}{行列の作成}{14}{0}{3}
+\beamer@subsectionintoc {3}{4}{オブジェクトの画面表示}{15}{0}{3}
+\beamer@subsectionintoc {3}{5}{データフレームの作成}{16}{0}{3}
+\beamer@subsectionintoc {3}{6}{データフレームの操作１}{17}{0}{3}
+\beamer@subsectionintoc {3}{7}{データフレームの操作２}{18}{0}{3}
+\beamer@subsectionintoc {3}{8}{データフレームの操作３}{19}{0}{3}
+\beamer@sectionintoc {4}{演算}{20}{0}{4}
+\beamer@subsectionintoc {4}{1}{四則}{21}{0}{4}
+\beamer@subsectionintoc {4}{2}{組込関数１}{22}{0}{4}
+\beamer@subsectionintoc {4}{3}{組込関数２}{23}{0}{4}
+\beamer@subsectionintoc {4}{4}{自作関数１}{24}{0}{4}
+\beamer@subsectionintoc {4}{5}{自作関数２}{25}{0}{4}
+\beamer@sectionintoc {5}{描画}{26}{0}{5}
+\beamer@subsectionintoc {5}{1}{描画用データ作成}{27}{0}{5}
+\beamer@subsectionintoc {5}{2}{散布図}{28}{0}{5}
+\beamer@subsectionintoc {5}{3}{ヒストグラム}{29}{0}{5}
+\beamer@subsectionintoc {5}{4}{回帰モデルグラフ}{30}{0}{5}
+\beamer@sectionintoc {6}{入出力}{31}{0}{6}
+\beamer@subsectionintoc {6}{1}{テキストデータの出力}{32}{0}{6}
+\beamer@subsectionintoc {6}{2}{テキストデータの入力}{33}{0}{6}
+\beamer@subsectionintoc {6}{3}{\textbf {Excel}データの入力}{34}{0}{6}
+\beamer@sectionintoc {7}{統計解析}{35}{0}{7}
+\beamer@subsectionintoc {7}{1}{観測データと試験データの作成}{36}{0}{7}
+\beamer@subsectionintoc {7}{2}{学習（フィッティング）}{37}{0}{7}
+\beamer@subsectionintoc {7}{3}{予測}{38}{0}{7}
+\beamer@subsectionintoc {7}{4}{回帰モデルグラフ}{39}{0}{7}
+\beamer@sectionintoc {8}{おわりに}{40}{0}{8}
+\beamer@sectionintoc {9}{インストール方法}{42}{1}{9}
+\beamer@subsectionintoc {9}{1}{\textbf {R}}{43}{1}{9}
+\beamer@subsectionintoc {9}{2}{\textbf {RStudio}}{44}{1}{9}
+\beamer@subsectionintoc {9}{3}{\textbf {R}パッケージ}{46}{1}{9}

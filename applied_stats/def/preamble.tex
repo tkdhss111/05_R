@@ -1,0 +1,125 @@
+%
+% My preambles
+%
+\usepackage{ifthen}
+%\usepackage{times}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,shapes,backgrounds}
+\usepackage{verbatim}
+%\usepackage[fleqn]{amsmath}
+\usepackage[varg]{txfonts}
+%\usepackage{float}
+\usepackage{ctable,dcolumn}
+%\usepackage[normalem]{ulem} % Underline
+%\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{wasysym}
+
+%\usepackage{pxpgfmark} % TikZを読み込む後に書 if you use uplatex + dvipdfmx
+
+% My macros ----------------------------------------------
+
+\def\Subtitle{\quad \small \color{black}}
+\def\cmt#1{\hl{[#1]}} % Comment
+
+\def\InputFig#1#2#3{
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=#1]{fig/#2.pdf}\\
+\text{#3}
+\label{#2}
+\end{center}
+\end{figure}
+}
+
+\def\InputTwoFigs#1#2#3#4{
+\begin{figure}[H]
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+\includegraphics[scale=#1]{fig/#2.pdf}
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+\includegraphics[scale=#1]{fig/#3.pdf}
+\end{center}
+\end{minipage}\\
+\text{#4}
+\label{#2}
+\end{figure}
+}
+
+\def\MyDownArrow{
+\vspace{-3mm}
+\begin{center}
+\textcolor{magenta}{
+{\Huge $\blacktriangledown$}
+}
+\end{center}
+\vspace{-3mm}
+}
+
+\def\MyRightArrow{
+\hspace{2mm}
+\textcolor{magenta}{
+{\Large $\blacktriangleright$}
+}
+}
+
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{every picture}+=[remember picture]
+
+\tikzstyle{na} = [baseline=-.5ex]
+
+% By default all math in TikZ nodes are set in inline mode. Change this to
+% displaystyle so that we don't get small fractions.
+\everymath{\displaystyle}
+
+\tikzset{
+ every overlay node/.style={
+   %draw=black,fill=white,rounded corners,
+   anchor=north west, inner sep=0pt,
+ },
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+  \tikz[remember picture, overlay]\node[every overlay node]
+}%
+
+\newcommand*{\yellowemph}[1]{%
+ \tikz\node[rectangle, fill=yellow, rounded corners, inner sep=0.3mm]{#1};%
+}
+
+\definecolor{myblue}{cmyk}{0.30,0.0,0.0,0.0}
+\definecolor{myred}{cmyk}{0.0,0.30,0.0,0.0}
+\def\mygray#1{\textcolor{gray}{#1}}
+
+%\setbeamercolor{block title}{use=structure,fg=white,bg=purple!75!black}
+
+%\renewcommand{\kanjifamilydefault}{\gtdefault} % Set Japanese font to Gothic for uplatex
+
+%-------------------------------------------------------
+% Language localization (Japanese)
+%-------------------------------------------------------
+\renewcommand{\contentsname}{目次}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{参考文献}
+%\def\proofname{証明}
+%\uselanguage{japanese}
+%\languagepath{japanese}
+%\deftranslation[to=japanese]{Theorem}{定理}
+%\deftranslation[to=japanese]{Lemma}{補題}
+%\deftranslation[to=japanese]{Example}{例}
+%\deftranslation[to=japanese]{Examples}{例}
+%\deftranslation[to=japanese]{Definition}{定義}
+%\deftranslation[to=japanese]{Definitions}{定義}
+%\deftranslation[to=japanese]{Problem}{問題}
+%\deftranslation[to=japanese]{Solution}{解}
+%\deftranslation[to=japanese]{Fact}{事実}
+%\deftranslation[to=japanese]{Proof}{証明}

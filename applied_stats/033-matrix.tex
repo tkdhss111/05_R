@@ -1,0 +1,42 @@
+\include{def/header}
+
+\subsection{行列の作成}
+\myffr
+
+  \mybfr{手順}
+    行列作成関数「matrix」を用いて作成．行数：nrow，列数：ncol
+  \mybto
+
+  \myefr{コンソール}
+    \cs{m <- matrix(1:4, nrow = 2, ncol = 2)}\\
+    \hfill (オプション byrow = T で行毎に値代入)\\
+    \cs{m}\\
+    \vspace{-9mm}
+    \begin{verbatim}
+             [,1] [,2]
+        [1,]    1    3
+        [2,]    2    4
+    \end{verbatim}
+    \vspace{-9mm}
+  \myeto
+
+  \mybfr{演習}
+    次の行列を作成してください．
+    \vspace{-9mm}
+    \[
+      \hspace{40mm}
+      \begin{bmatrix}
+        -2 & 0 & 2\\
+         4 & 6 & 8 
+      \end{bmatrix}
+      , 
+      \begin{bmatrix}
+        NA & NA\\
+        NA & NA 
+      \end{bmatrix}
+    \]
+  \mybto
+
+\end{frame}
+
+\include{def/footer}

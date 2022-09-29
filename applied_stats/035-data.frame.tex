@@ -1,0 +1,130 @@
+\include{def/header}
+
+\subsection{データフレームの作成}
+
+\myffr
+
+  \mybfr{手順}
+    テーブル作成関数「data.frame」を用いて作成する．
+  \mybto
+
+  \myefr{コンソール}
+    \cs{d <- data.frame(name = c('panda', 'lion'),\\\hfill age  = c(5, 7), male = c(T, F))}\\
+    \cs{d}\\
+       ~~~name age  male\\
+     1 panda   5  TRUE\\
+     2 ~~~lion   7 FALSE\\
+  \myeto
+
+  \mybfr{演習}
+    漢字，数値，論理値のカラムを持つ，
+    データフレームを作成してください（内容自由）．
+  \mybto
+
+\end{frame}
+
+\subsection{データフレームの操作１}
+
+\myffr
+
+  \vspace{-4mm}
+
+  \mybfr{手順}
+    アクセスしたいコラム（列）やレコード（行）の
+    インデック番号を入力する.
+    負の番号を入れると，そのコラムが除かれる．
+  \mybto
+
+  \myeee
+  {コンソール1}
+  {
+    \cs{ d[, 1] }\\ \relax
+    [1] "panda" "lion" 
+  }
+  {コンソール2}
+  {
+    \cs{ d[, c(1, 3)] }\\
+    ~~name  male\\
+    1 panda  TRUE\\
+    2 ~~~lion FALSE
+  }
+  {コンソール3}
+  {
+    \cs{ d[, -1] }\\
+    ~~age  male\\
+    1   5  TRUE\\
+    2   7 FALSE
+  }
+
+  \mybfr{演習}
+    レコード（行）にもインデックス番号でアクセスし，値の表示や代入を行ってください．
+  \mybto
+
+\end{frame}
+
+\subsection{データフレームの操作２}
+
+\myffr
+
+  \vspace{-2mm}
+
+  \mybfr{手順}
+    オブジェクト名のあとにアクセスしたいコラム（列）名を＄で結びつける.
+    または，コラム（列）名をリテラルで囲み記入する．\\
+    データフレームdのカラム： d\$カラム名 or d[, 'カラム名']
+  \mybto
+
+  \vspace{-2mm}
+
+  \myee
+    {コンソール1}
+    {
+      \cs{ d\$age }\\ \relax
+      [1] 5 7
+    }
+    {コンソール2}
+    {
+      \cs{ d[, c('name', 'age')] }\\
+      ~~~name age\\
+        1 panda   5\\
+        2 ~~~lion   7
+    }
+
+  \mybfr{演習}
+  レコード（行）にもレコード名でアクセスし，値の表示や代入を行ってください．
+  \mybto
+
+  カラム名，レコード名はrownames(d), colnames(d)でアクセス可能
+\end{frame}
+
+\subsection{データフレームの操作３}
+
+\myffr
+
+  \mybfr{手順}
+    アクセスしたいコラム（列）やレコード（行）に論理値を入力する.
+    T（TRUE）の論理値箇所のデータが抽出される．
+  \mybto
+
+  \myee
+    {コンソール1}
+    {
+      \cs{ d[, c(T, F, T)] }\\
+          ~~~name  male\\
+        1 panda  TRUE\\
+        2 ~~~lion FALSE
+    }
+    {コンソール2}
+    {
+      \cs{ d[d\$age > 6, ] }\\
+       ~~name age  male\\
+       2 ~~lion ~~7 FALSE
+     }
+
+  \mybfr{演習}
+    レコード（行）に論理値ベクトルでアクセスし，値の表示や代入を行ってください．
+  \mybto
+
+\end{frame}
+
+\include{def/footer}

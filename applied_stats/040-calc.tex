@@ -1,0 +1,169 @@
+\include{def/header}
+
+\subsection{四則}
+
+\myffr
+
+  \mybfr{手順}
+    和「+」，減「-」，積「*」，除「/」，乗「\^\ 」，
+    剰余「\%\%」，剰商「\%/\%」の算法記号を使って演算する．
+    要素ごとの演算となる．
+  \mybto
+  この他，行列演算用の積「\%*\%」，転置「t()」，逆行列「solve()」などもある．
+
+  \myeee
+  {コンソール１}
+  {
+    \cs{x <- 1:3; y <- 1:3}\\
+    \cs{x + y}\\ \relax
+    [1] 2 4 6
+  }
+  {コンソール２}
+  {
+    \cs{x <- 1:3; y <- 1:3}\\
+    \cs{x * y}\\ \relax
+    [1] 1 4 9
+  }
+  {コンソール３}
+  {
+    \cs{x <- 9; y <- 2}\\
+    \cs{x \%/\% y}\\ \relax
+    [1] 4
+  }
+
+  \mybfr{演習}
+    上記，すべての演算記号を使って，計算してください（内容自由）．
+  \mybto
+  
+\end{frame}
+
+\subsection{組込関数１}
+
+\myffr
+
+  \mybfr{手順}
+  平均値「mean」，中央値「median」，最大「max」，最小「min」\\
+  範囲「range」，平方根「sqrt」，絶対値「abs」，丸め「round」など
+  \mybto
+
+  \myeee
+  {コンソール１}
+  {
+    \cs{x <- 1:3}\\
+    \cs{mean(x)}\\ \relax
+    [1] 2
+  }
+  {コンソール２}
+  {
+    \cs{x <- 1:3}\\
+    \cs{range(x)}\\ \relax
+    [1] 1 3
+  }
+  {コンソール３}
+  {
+    \cs{x <- 3.14}\\
+    \cs{round(x, 1)}\\ \relax
+    [1] 3.1 
+  }
+
+  \mybfr{演習}
+    上記，すべての組み込み関数を使って，計算してください（内容自由）．
+    また，その他の関数，定数（pi）は，どのようなものがあるかインターネットで検索してください．
+  \mybto
+  
+\end{frame}
+
+\subsection{組込関数２}
+
+\myffr
+
+  \mybfr{手順}
+  平均値「mean」，中央値「median」，最大「max」，最小「min」\\
+  範囲「range」，平方根「sqrt」，絶対値「abs」，丸め「round」など
+  \mybto
+
+  \myeee
+  {コンソール１}
+  {
+    \cs{x <- 1:3}\\
+    \cs{mean(x)}\\ \relax
+    [1] 2
+  }
+  {コンソール２}
+  {
+    \cs{x <- 1:3}\\
+    \cs{range(x)}\\ \relax
+    [1] 1 3
+  }
+  {コンソール３}
+  {
+    \cs{x <- 3.14}\\
+    \cs{round(x, 1)}\\ \relax
+    [1] 3.1 
+  }
+
+  \mybfr{演習}
+    上記，すべての組み込み関数を使って，計算してください（内容自由）．
+    また，その他の関数，定数（pi）は，どのようなものがあるかインターネットで検索してください．
+  \mybto
+  
+\end{frame}
+
+\subsection{自作関数１}
+\myffr
+
+  \mybfr{手順}
+    関数オブジェクト名 <- function (引数１，引数２，...) 関数式\\
+    の形式で関数を作成する．引数は値渡しとなる．
+  \mybto
+
+  \myefr{コンソール}
+    \cs{get.mbe <- function(yhat, y) mean(yhat - y)}\\
+    \cs{mbe <- get.mbe(yhat \textcolor{red}{=} 1:3, y \textcolor{red}{=} 4:6)}\\\relax
+    [1] -3
+  \myeto
+
+  \mybfr{演習}
+    RMSE（平均２乗誤差平方）を求める関数を作成してください．
+    \vspace{-2mm}
+    \[
+    \mathrm{RMSE} = \sqrt{\frac{1}{N} \sum_{i = 1}^{N} (\hat{y}_i-y_i)^2}
+    \hspace{5mm} \mbox{平均：mean()，平方根：sqrt()}
+    \]
+  \mybto
+  
+\end{frame}
+
+\subsection{自作関数２}
+
+\myffr
+
+  \mybfr{手順}
+    複数行の関数を作成するときは，関数のスコープを示す｛｝（中括弧）や変数名を指定して出力するreturn関数を用いる．
+  \mybto 
+
+  \myee
+  {コンソール１}
+  {
+    \cs{f <- function(x) \{ \mycheck{}\\
+        ~~~~~y~<- 1 + x + x \^ \ 2\\
+        ~~~~~z~<- log(y)\\
+        ~~~~~return(z) \mycheck{}\\
+        ~~~\} \mycheck{}
+    }
+  }
+  {コンソール２}
+  {
+    \cs{f(2)}\\\relax
+    [1] 1.94591
+  }\\[2mm]
+
+  \mycheck{ return関数では，最後のオブジェクトを返す場合は記述しなくてもよい．}
+
+  \mybfr{演習}
+    複数行の関数を作成してください．
+  \mybto
+  
+\end{frame}
+
+\include{def/footer}
