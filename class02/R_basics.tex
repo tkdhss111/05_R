@@ -1,0 +1,357 @@
+\documentclass[../main]{subfiles}
+\graphicspath{{\string~/AQUOS/Default_Folder/TIU/lectures/05_R/tex/fig/}}
+\begin{document}
+
+\tcbstartrecording\relax
+
+\section{スカラの作成}
+
+\Definition{手順}
+{
+  オブジェクト名の後に，\\
+  代入（付置）記号「\cs{<-}」と値を入力する．
+}
+・「\cs{<-}」の代わりに「\cs{=}」も使用できる （若干意味が異なる）．\\
+・オブジェクト名は，大文字と小文字は区別される．
+  %・ls()で作成したオブジェクトの名前を表示できる．\\
+  %・rm('x')でオブジェクトxを削除できる． rm(list=ls())で全消去．\\
+
+
+
+\begin{ConsoleR}
+> x <- 1
+> kw.pv <- 3.1
+\end{ConsoleR}
+
+\begin{ConsoleR}
+> ls()            # オブジェクト名表示
+> rm(list = ls()) # 全消去
+\end{ConsoleR}
+
+\R ではオブジェクト名称の大文字と小文字は区別される．
+漢字名称も使用可能だが，通常はローマ字小文字で，
+判別可能な略語を用い，ofの意味で「\cs{.}」や「\cs{\_}」
+を利用し単語を結合すると分かりやすくなる．\\[5mm]
+【例】\cs{lat.jp} （日本の緯度），\cs{kw.pv}（PV発電量）
+
+\begin{exercise}
+  「Alt~+~-」で代入記号（\cs{<-}）を20回入力してください．\\
+  オブジェクト名を表示，オブジェクトを削除してください．
+  \tcblower
+\end{exercise}
+
+\section{ベクトルの作成}
+
+\Definition{手順}
+{
+  \begin{description}
+    \item[【方法1】] 結合関数「\cs{c}」を用いて作成
+    \item[【方法2】] 等差数列作成記号「\cs{:}」を用いて作成
+    \item[【方法3】] 等差数列作成関数「\cs{seq}」を用いて作成
+  \end{description}
+}
+
+「\cs{rep}」関数で同一値ベクトル作成も可能\\
+\cs{rep(NA, 3)} $\rightarrow$ NA~NA~NA\\
+「\cs{?}関数名」をコンソールに入力するとヘルプが表示される．
+
+\begin{ConsoleR}
+> v <- c(1, 6, 3)
+[1] 1 6 3
+
+> v <- 1:3
+[1] 1 2 3
+
+> v <- seq(1, 6, 2)
+[1] 1 3 5
+\end{ConsoleR}
+
+\begin{exercise}
+  次のベクトルを作成してください．\\
+  「3 2 1」,「3 6 9」,「4 2 0」,「1.5 2.5 3.5」,「1 2 3 1 2 3」
+  \tcblower
+\end{exercise}
+
+\section{行列の作成}
+
+\Definition{手順}
+{
+  行列作成関数「\cs{matrix}」を用いて作成．\\
+  行数：\cs{nrow}，列数：\cs{ncol}
+}
+
+\begin{ConsoleR}
+> m <- matrix(1:4, nrow=2, ncol=2)
+> m
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+> m <- matrix(1:4, nrow=2, ncol=2, byrow=T) # 行方向代入
+> m
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+\end{ConsoleR}
+
+\begin{exercise}
+  次の行列を作成してください．
+  \vspace{-9mm}
+  \[
+    \hspace{40mm}
+    \begin{bmatrix}
+      -2 & 0 & 2\\
+        4 & 6 & 8
+    \end{bmatrix}
+    ,
+    \begin{bmatrix}
+      NA & NA\\
+      NA & NA
+    \end{bmatrix}
+  \]
+  \tcblower
+  \begin{ConsoleR}
+Ex.          [,1] [,2]
+      [1,]   1    3
+      [2,]   2    4
+  \end{ConsoleR}
+\end{exercise}
+
+\section{オブジェクトの画面表示}
+
+\Definition{手順}
+{
+  【方法1】コンソールに表示させたいオブジェクト名を入力する．\\
+  【方法2】ソースコード画面でオブジェクトを選択してCtrl＋Enterを押す．
+}
+
+\begin{ConsoleR}
+> v[3]
+[1] 3
+> m[2, ]
+[1] 2 4
+> (x <- c(1, 2))
+[1] 1 2
+\end{ConsoleR}
+
+【オブジェクト要素の\R 表記】\\
+~~ベクトルvの要素$i$： \cs{v[i]}\\
+~~行列mの$i$行： \cs{m[i, ]}，$j$列： \cs{m[, j]}，要素$(i, j)$： \cs{m[i, j]}
+
+\begin{exercise}
+  スカラ，ベクトル，行列の値を表示させてください．
+  \tcblower
+\end{exercise}
+
+\section{データフレームの作成}
+
+\Definition{手順}
+{
+  テーブル作成関数「\cs{data.frame}」を用いて作成する．
+}
+
+\begin{ConsoleR}
+> d <- data.frame(name = c('panda', 'lion'),
+                  age  = c(5, 7),
+                  male = c(T, F))
+> d
+   name age  male
+1 panda   5  TRUE
+2  lion   7 FALSE
+\end{ConsoleR}
+
+\begin{exercise}
+  漢字，数値，論理値のカラムを持つ，
+  データフレームを作成してください（内容自由）．
+  \tcblower
+\end{exercise}
+
+\subsection{データフレームの操作１}
+
+\Definition{手順}
+{
+  アクセスしたいコラム（列）やレコード（行）のインデック番号を入力する.
+  負の番号を入れると，そのコラムが除かれる．
+}
+
+\begin{ConsoleR}
+> d[, 1]
+[1] "panda" "lion"
+> d[, c(1, 3)]
+   name  male
+1 panda  TRUE
+2  lion FALSE
+> d[, -1]
+  age  male
+1   5  TRUE
+2   7 FALSE
+\end{ConsoleR}
+
+\begin{exercise}
+  レコード（行）にもインデックス番号でアクセスし，値の表示や代入を行ってください．
+  \tcblower
+\end{exercise}
+
+\subsection{データフレームの操作２}
+
+\Definition{手順}
+{
+  オブジェクト名のあとにアクセスしたいコラム（列）名を\cs{\$}で結びつける.
+  または，コラム（列）名をリテラルで囲み記入する．
+  データフレーム\cs{d}のカラム： \cs{d\$カラム名} or \cs{d[, 'カラム名']}
+}
+
+\begin{ConsoleR}
+  > d@\$@age
+  [1] 5 7
+
+  > d[, c('name', 'age')]
+     name age
+  1 panda   5
+  2  lion   7
+\end{ConsoleR}
+
+\begin{exercise}
+  レコード（行）にもレコード名でアクセスし，値の表示や代入を行ってください．
+  \tcblower
+\end{exercise}
+
+カラム名，レコード名は\cs{rownames(d)}, \cs{colnames(d)}でアクセス可能
+
+\subsection{データフレームの操作３}
+
+\Definition{手順}
+{
+  アクセスしたいコラム（列）やレコード（行）に論理値を入力する.
+  \cs{T}（\cs{TRUE}）の論理値箇所のデータが抽出される．
+}
+
+\begin{ConsoleR}
+> d[, c(T, F, T)]
+    name  male
+1 panda  TRUE
+2  lion FALSE
+
+> d[d@\$@age > 6, ]
+name age  male
+2 lion 7 FALSE
+\end{ConsoleR}
+
+\begin{exercise}
+  レコード（行）に論理値ベクトルでアクセスし，値の表示や代入を行ってください．
+  \tcblower
+\end{exercise}
+
+\section{四則演算}
+
+\Definition{手順}
+{
+  和「\cs{+}」，減「\cs{-}」，積「\cs{*}」，除「\cs{/}」，乗「~~\cs{\^} 」，
+  剰余「\cs{\%\%}」，剰商「\cs{\%/\%}」の算法記号を使って演算する．
+  要素ごとの演算となる．
+}
+この他，行列演算用の積「\cs{\%*\%}」，転置「\cs{t()}」，逆行列「\cs{solve()}」などもある．
+
+\begin{ConsoleR}
+> x <- 1:3; y <- 1:3
+> x + y
+[1] 2 4 6
+
+> x <- 1:3; y <- 1:3
+> x * y
+[1] 1 4 9
+
+> x <- 9; y <- 2
+> x %/% y
+[1] 4
+\end{ConsoleR}
+
+\begin{exercise}
+  上記，すべての演算記号を使って計算してください（内容自由）．
+  \tcblower
+\end{exercise}
+
+\section{組込関数１}
+
+\Definition{手順}
+{
+  平均値「\cs{mean}」，中央値「\cs{median}」，最大「\cs{max}」，最小「\cs{min}」\\
+  範囲「\cs{range}」，平方根「\cs{sqrt}」，絶対値「\cs{abs}」，丸め「\cs{round}」など
+}
+
+\begin{ConsoleR}
+> x <- 1:3
+> mean(x)
+[1] 2
+
+> x <- 1:3
+> range(x)
+[1] 1 3
+
+> x <- 3.14
+> round(x, 1)
+[1] 3.1
+\end{ConsoleR}
+
+\begin{exercise}
+  上記，すべての組み込み関数を使って，計算してください（内容自由）．
+  また，その他の関数，定数（\cs{pi}）は，どのようなものがあるかインターネットで検索してください．
+  \tcblower
+\end{exercise}
+
+\section{自作関数１}
+
+\Definition{手順}
+{
+  \cs{関数オブジェクト名 <- function (引数１，引数２，...) 関数式}\\
+  の形式で関数を作成する．引数は値渡しとなる．
+}
+
+\begin{ConsoleR}
+> get.mbe <- function(yhat, y) mean(yhat - y)
+> mbe <- get.mbe(yhat = 1:3, y = 4:6)
+[1] -3
+\end{ConsoleR}
+
+\begin{exercise}
+  RMSE（平均２乗誤差平方）を求める関数を作成してください．
+  \vspace{-2mm}
+  \[
+  \mathrm{RMSE} = \sqrt{\frac{1}{N} \sum_{i = 1}^{N} (\hat{y}_i-y_i)^2}
+  \hspace{5mm} \mbox{平均：\cs{mean()}，平方根：\cs{sqrt()}}
+  \]
+  \tcblower
+\end{exercise}
+
+\section{自作関数２}
+
+\Definition{手順}
+{
+  複数行の関数を作成するときは，関数のスコープを示す\cs{｛｝}（中括弧）や
+  変数名を指定して出力する\cs{return}関数を用いる．
+}
+
+\begin{ConsoleR}
+> f <- function(x) {
+      y <- 1 + x + x^2
+      z <- log(y)
+      return(z)
+      }
+
+> f(2)
+[1] 1.94591
+\end{ConsoleR}
+
+\cs{return}関数では，最後のオブジェクトを返す場合は記述しなくてもよい．
+
+\begin{exercise}
+  複数行の関数を作成してください．
+  \tcblower
+\end{exercise}
+
+%=================================================================
+\tcbstoprecording
+\section{解答}
+\tcbinputrecords
+
+\end{document}

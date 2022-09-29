@@ -1,0 +1,80 @@
+\documentclass[../main]{subfiles}
+\graphicspath{{\string~/AQUOS/Default_Folder/TIU/lectures/05_R/tex/fig/}}
+\begin{document}
+
+\tcbstartrecording\relax
+
+\section{テキストデータの出力}
+
+\Definition{手順}
+{
+  \cs{write.csv}関数を使用して，オブジェクトデータを
+  ファイルにCSVファイル形式*で書き込む．
+  * CSV：カンマ区切
+}
+
+\begin{ConsoleR}
+  d0 <- data.frame(name = c('panda', 'lion'), 
+                    age = c(5, 7))
+  write.csv(d0, file = 'd0.csv')
+\end{ConsoleR}
+
+\cs{quote = F} オプションをつけると文字列引用符「"」を削除できる．
+\cs{write.csv(d0, file = 'd0.csv', quote = F)}
+
+\begin{exercise}
+  データフレームを作成し，ファイルに出力してください．
+\tcblower
+\end{exercise}
+
+\section{テキストデータの入力}
+
+\Definition{手順}
+{
+  \cs{read.csv}関数を使用して，CSVファイルを読み込みオブジェクトに格納する．
+}
+
+\begin{ConsoleR}
+  d1 <- read.csv(file = 'd0.csv')
+  str(d1)
+\end{ConsoleR}
+
+\cs{stringsAsFactors = F} オプションをつけると文字列の自動因子化を抑制します．
+\cs{read.csv(file = 'd0.csv', stringsAsFactors = F)}
+
+\begin{exercise}
+  CSVファイルを読み込みオブジェクトに格納してください．
+\tcblower
+\end{exercise}
+
+\section{\Excel データの入力}
+
+\Definition{手順}
+{
+  \cs{excel.link}パッケージを利用し，\R とリンクさせる．\\
+  パッケージの利用コマンド：\cs{library(excel.link)}
+}
+
+\begin{ConsoleR}
+  library(excel.link)
+  xl.workbook.open('test.xlsx') # Excelを開く
+  d <- data.frame(x=3:1, y=-1:1)
+  xl['Sheet1!A1'] <- d # Sheet1のＡ１を起点としてデータを書き込み
+  xl['Sheet1!B2'] -> x # Sheet1のＢ２からデータを読み込み
+  xl.workbook.save('test.xlsx') # Excelを保存
+\end{ConsoleR}
+
+\cs{xlr}: 行名付き，\cs{xlc}：列名付き, \cs{xlrc}：行列名付き入出力
+
+\begin{exercise}
+  パッケージのヘルプにあるサンプルコードを用いて\Excel を操作してください．
+\tcblower
+\end{exercise}
+
+
+%=================================================================
+\tcbstoprecording
+\section{解答}
+\tcbinputrecords
+
+\end{document}
